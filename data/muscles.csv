@@ -1,0 +1,39 @@
+id,name,short_name,region,group
+neck,Sternocleidomastoid (neck),Neck,Top,
+traps-upper,Upper trapezius,Upper traps,Top,traps
+pec-upper,Upper chest (clavicular pec),Upper chest,Torso,chest
+pec-lower,Mid & lower chest (sternal pec),Chest,Torso,chest
+serratus,Serratus anterior,Serratus,Torso,
+obliques,Obliques,Obliques,Torso,obliques
+abs-upper,Rectus abdominis – upper,Upper abs,Torso,abs
+abs-lower,Rectus abdominis – lower,Lower abs,Torso,abs
+traps-mid,Middle trapezius & rhomboids,Mid traps,Torso,mid-traps
+traps-lower,Lower trapezius,Lower traps,Torso,lower-traps
+infraspinatus,Infraspinatus (rotator cuff),Rotator cuff,Torso,back-shoulders
+lats,Latissimus dorsi (lats),Lats,Torso,lats
+teres,Teres major,Teres major,Torso,lats
+lower-back,Erector spinae (lower back),Erectors,Torso,lower-back
+delt-front,Anterior deltoid,Front delts,Arms,front-shoulders
+delt-side,Lateral deltoid,Side delts,Arms,front-shoulders
+delt-rear,Posterior deltoid,Rear delts,Arms,back-shoulders
+biceps-long,Biceps – long head,Biceps long head,Arms,biceps
+biceps-short,Biceps – short head,Biceps short head,Arms,biceps
+brachialis,Brachialis,Brachialis,Arms,biceps
+triceps-long,Triceps – long head,Triceps long head,Arms,triceps
+triceps-lat,Triceps – lateral head,Triceps lateral head,Arms,triceps
+triceps-medial,Triceps – medial head,Triceps medial head,Arms,triceps
+brachioradialis,Brachioradialis,Brachioradialis,Arms,forearms
+forearm-flex,Forearm flexors (grip),Grip,Arms,forearms
+forearm-ext,Forearm extensors,Forearm extensors,Arms,forearms
+glute-med,Gluteus medius,Glute med,Legs,glutes
+glutes,Gluteus maximus,Glute max,Legs,glutes
+hip-flexors,Hip flexors (TFL),Hip flexors,Legs,
+quads-rf,Rectus femoris (quads),Rectus femoris,Legs,quads
+quads-vl,Vastus lateralis (outer quad),Outer quad,Legs,quads
+quads-vm,Vastus medialis (inner quad),Inner quad,Legs,quads
+adductors,Adductors (inner thigh),Adductors,Legs,inner-thigh
+hams-bf,Biceps femoris (outer hamstring),Outer hamstring,Legs,hamstrings
+hams-semi,Semitendinosus & semimembranosus,Inner hamstring,Legs,hamstrings
+tibialis,Tibialis anterior (shin),Shin,Legs,shin
+gastroc,Gastrocnemius (calf),Calf,Legs,calves
+soleus,Soleus (deep calf),Soleus,Legs,calves

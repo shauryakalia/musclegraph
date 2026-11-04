@@ -1,0 +1,20 @@
+id,name,region
+traps,Traps,Top
+chest,Chest,Torso
+abs,Abdominals,Torso
+obliques,Obliques,Torso
+mid-traps,Middle traps,Torso
+lower-traps,Lower traps,Torso
+lats,Lats,Torso
+lower-back,Lower back,Torso
+front-shoulders,Front shoulders,Arms
+back-shoulders,Back shoulders,Arms
+biceps,Biceps,Arms
+triceps,Triceps,Arms
+forearms,Forearms,Arms
+glutes,Glutes,Legs
+quads,Quads,Legs
+inner-thigh,Inner thigh,Legs
+hamstrings,Hamstrings,Legs
+calves,Calves,Legs
+shin,Shin,Legs

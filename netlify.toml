@@ -1,0 +1,8 @@
+# Used when Netlify builds from a Git repo. For drag-and-drop deploys,
+# run `pnpm build` locally and drop the `out` folder on app.netlify.com/drop.
+[build]
+  command = "pnpm build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
