@@ -1,0 +1,231 @@
+ms_muscle,movement,muscle_id,weight
+Abs,*,abs-upper,1
+Abs,*,abs-lower,0.8
+Abs,leg-raise,abs-lower,1
+Abs,leg-raise,abs-upper,0.7
+Abs,anti-extension,abs-upper,1
+Abs,anti-extension,abs-lower,1
+Abs,anti-extension,obliques,0.6
+Abs,rotation,obliques,1
+Abs,rotation,abs-upper,0.6
+Abs,rotation,abs-lower,0.6
+Abs,lateral-flexion,obliques,1
+Abs,lateral-flexion,abs-upper,0.5
+Abs,lateral-flexion,abs-lower,0.5
+Obliques,*,obliques,1
+Obliques,*,abs-upper,0.4
+Obliques,*,abs-lower,0.4
+Abductors,*,glute-med,1
+Abductors,*,hip-flexors,0.6
+Abductors,*,glutes,0.5
+Adductors,*,adductors,1
+Biceps,*,biceps-long,1
+Biceps,*,biceps-short,1
+Biceps,*,brachialis,0.8
+Biceps,*,brachioradialis,0.5
+Biceps,curl-short,biceps-short,1
+Biceps,curl-short,biceps-long,0.8
+Biceps,curl-short,brachialis,0.8
+Biceps,curl-short,brachioradialis,0.4
+Biceps,curl-long,biceps-long,1
+Biceps,curl-long,biceps-short,0.8
+Biceps,curl-long,brachialis,0.6
+Biceps,curl-long,brachioradialis,0.4
+Biceps,curl-neutral,brachialis,1
+Biceps,curl-neutral,brachioradialis,1
+Biceps,curl-neutral,biceps-long,0.7
+Biceps,curl-neutral,biceps-short,0.6
+Biceps,curl-reverse,brachioradialis,1
+Biceps,curl-reverse,brachialis,0.9
+Biceps,curl-reverse,forearm-ext,0.7
+Biceps,curl-reverse,biceps-long,0.4
+Biceps,curl-reverse,biceps-short,0.4
+Biceps,vertical-pull,biceps-long,1
+Biceps,vertical-pull,biceps-short,1
+Biceps,vertical-pull,brachialis,1
+Biceps,vertical-pull,brachioradialis,0.8
+Biceps,horizontal-pull,biceps-long,1
+Biceps,horizontal-pull,biceps-short,1
+Biceps,horizontal-pull,brachialis,1
+Biceps,horizontal-pull,brachioradialis,0.8
+Biceps,bent-row,biceps-long,1
+Biceps,bent-row,biceps-short,1
+Biceps,bent-row,brachialis,1
+Biceps,bent-row,brachioradialis,0.8
+Calves,*,gastroc,1
+Calves,*,soleus,0.6
+Calves,calf-raise-seated,soleus,1
+Calves,calf-raise-seated,gastroc,0.4
+Calves,tibialis,tibialis,1
+Calves,leg-curl,gastroc,1
+Chest,*,pec-lower,1
+Chest,*,pec-upper,0.8
+Chest,incline-press,pec-upper,1
+Chest,incline-press,pec-lower,0.6
+Chest,incline-fly,pec-upper,1
+Chest,incline-fly,pec-lower,0.6
+Chest,decline-press,pec-lower,1
+Chest,decline-press,pec-upper,0.4
+Chest,dip,pec-lower,1
+Chest,dip,pec-upper,0.4
+Chest,push-up,pec-lower,1
+Chest,push-up,pec-upper,0.7
+Chest,push-up,serratus,0.6
+Chest,pullover,pec-lower,1
+Chest,pullover,serratus,0.6
+Chest,pullover,lats,0.6
+Chest,vertical-press,pec-upper,1
+Forearms,*,forearm-flex,1
+Forearms,*,brachioradialis,0.6
+Forearms,wrist-extension,forearm-ext,1
+Forearms,wrist-rotation,brachioradialis,1
+Forearms,wrist-rotation,forearm-flex,0.6
+Forearms,wrist-rotation,forearm-ext,0.6
+Forearms,curl-reverse,brachioradialis,1
+Forearms,curl-reverse,forearm-ext,0.8
+Forearms,curl-neutral,brachioradialis,1
+Forearms,curl-neutral,forearm-flex,0.5
+Glutes,*,glutes,1
+Glutes,*,glute-med,0.6
+Glutes,lunge,glutes,1
+Glutes,lunge,glute-med,0.8
+Glutes,hip-abduction,glute-med,1
+Glutes,hip-abduction,glutes,0.6
+Glutes,hip-abduction,hip-flexors,0.5
+Hamstrings,*,hams-bf,1
+Hamstrings,*,hams-semi,1
+Hamstrings,hinge,hams-bf,1
+Hamstrings,hinge,hams-semi,0.9
+Hip Flexors,*,hip-flexors,1
+Hip Flexors,*,quads-rf,0.7
+IT Band,*,hip-flexors,0.8
+IT Band,*,quads-vl,0.6
+Lats,*,lats,1
+Lats,*,teres,0.8
+Lats,vertical-pull,lats,1
+Lats,vertical-pull,teres,0.8
+Lats,vertical-pull,traps-lower,0.6
+Lats,horizontal-pull,lats,1
+Lats,horizontal-pull,teres,0.8
+Lats,horizontal-pull,traps-mid,0.6
+Lats,bent-row,lats,1
+Lats,bent-row,teres,0.8
+Lats,bent-row,traps-mid,0.6
+Lats,pullover,lats,1
+Lats,pullover,teres,0.8
+Lats,pullover,triceps-long,0.4
+Lower Back,*,lower-back,1
+Middle Back,*,traps-mid,1
+Middle Back,*,lats,0.6
+Middle Back,*,delt-rear,0.6
+Middle Back,*,teres,0.6
+Middle Back,*,traps-lower,0.5
+Middle Back,vertical-pull,lats,1
+Middle Back,vertical-pull,teres,0.8
+Middle Back,vertical-pull,traps-lower,0.6
+Middle Back,vertical-pull,traps-mid,0.6
+Middle Back,rear-delt,traps-mid,1
+Middle Back,rear-delt,delt-rear,0.8
+Middle Back,rear-delt,infraspinatus,0.6
+Middle Back,y-raise,traps-lower,1
+Middle Back,y-raise,traps-mid,0.8
+Middle Back,shrug,traps-upper,1
+Upper Back,*,traps-mid,1
+Upper Back,*,lats,0.7
+Upper Back,*,delt-rear,0.6
+Upper Back,*,teres,0.6
+Upper Back,*,traps-lower,0.5
+Upper Back,vertical-pull,lats,1
+Upper Back,vertical-pull,teres,0.8
+Upper Back,vertical-pull,traps-lower,0.6
+Upper Back,vertical-pull,traps-mid,0.6
+Upper Back,rear-delt,traps-mid,1
+Upper Back,rear-delt,delt-rear,0.8
+Upper Back,rear-delt,infraspinatus,0.6
+Upper Back,y-raise,traps-lower,1
+Upper Back,y-raise,traps-mid,0.8
+Upper Back,shrug,traps-upper,1
+Upper Back,shrug,traps-mid,0.4
+Neck,*,neck,1
+Neck,*,traps-upper,0.5
+Palmar Fascia,*,forearm-flex,0.6
+Quads,*,quads-vl,1
+Quads,*,quads-vm,1
+Quads,*,quads-rf,0.6
+Quads,knee-extension,quads-rf,1
+Quads,knee-extension,quads-vl,0.8
+Quads,knee-extension,quads-vm,0.8
+Quads,leg-raise,quads-rf,1
+Shoulders,*,delt-front,1
+Shoulders,*,delt-side,0.6
+Shoulders,vertical-press,delt-front,1
+Shoulders,vertical-press,delt-side,0.7
+Shoulders,lateral-raise,delt-side,1
+Shoulders,lateral-raise,delt-front,0.4
+Shoulders,lateral-raise,traps-upper,0.4
+Shoulders,front-raise,delt-front,1
+Shoulders,front-raise,pec-upper,0.4
+Shoulders,rear-delt,delt-rear,1
+Shoulders,rear-delt,infraspinatus,0.6
+Shoulders,rear-delt,traps-mid,0.6
+Shoulders,upright-row,delt-side,1
+Shoulders,upright-row,traps-upper,0.8
+Shoulders,upright-row,delt-front,0.4
+Shoulders,rotator-cuff,infraspinatus,1
+Shoulders,rotator-cuff,delt-rear,0.5
+Shoulders,y-raise,traps-lower,1
+Shoulders,y-raise,delt-rear,0.6
+Shoulders,y-raise,infraspinatus,0.6
+Shoulders,horizontal-pull,delt-rear,1
+Shoulders,bent-row,delt-rear,1
+Shoulders,vertical-pull,delt-rear,1
+Shoulders,horizontal-press,delt-front,1
+Shoulders,incline-press,delt-front,1
+Shoulders,decline-press,delt-front,1
+Shoulders,push-up,delt-front,1
+Shoulders,dip,delt-front,1
+Shoulders,chest-fly,delt-front,1
+Shoulders,incline-fly,delt-front,1
+Shoulders,olympic,delt-side,0.8
+Shoulders,olympic,delt-front,0.8
+Traps,*,traps-upper,1
+Traps,*,traps-mid,0.5
+Traps,y-raise,traps-lower,1
+Traps,y-raise,traps-mid,0.6
+Traps,rear-delt,traps-mid,1
+Traps,rear-delt,traps-lower,0.5
+Triceps,*,triceps-lat,1
+Triceps,*,triceps-long,0.8
+Triceps,*,triceps-medial,0.8
+Triceps,triceps-overhead,triceps-long,1
+Triceps,triceps-overhead,triceps-lat,0.6
+Triceps,triceps-overhead,triceps-medial,0.6
+Triceps,triceps-lying,triceps-long,1
+Triceps,triceps-lying,triceps-lat,0.8
+Triceps,triceps-lying,triceps-medial,0.8
+Triceps,triceps-pushdown,triceps-lat,1
+Triceps,triceps-pushdown,triceps-medial,0.8
+Triceps,triceps-pushdown,triceps-long,0.6
+Triceps,triceps-reverse,triceps-medial,1
+Triceps,triceps-reverse,triceps-lat,0.8
+Triceps,triceps-reverse,triceps-long,0.5
+Triceps,triceps-kickback,triceps-lat,1
+Triceps,triceps-kickback,triceps-long,0.8
+Triceps,triceps-kickback,triceps-medial,0.8
+Triceps,horizontal-press,triceps-lat,1
+Triceps,horizontal-press,triceps-medial,1
+Triceps,horizontal-press,triceps-long,0.6
+Triceps,incline-press,triceps-lat,1
+Triceps,incline-press,triceps-medial,0.8
+Triceps,incline-press,triceps-long,0.6
+Triceps,push-up,triceps-lat,1
+Triceps,push-up,triceps-medial,1
+Triceps,push-up,triceps-long,0.6
+Triceps,dip,triceps-lat,1
+Triceps,dip,triceps-long,0.8
+Triceps,dip,triceps-medial,0.8
+Triceps,vertical-press,triceps-lat,1
+Triceps,vertical-press,triceps-medial,0.8
+Triceps,vertical-press,triceps-long,0.5
+Triceps,pullover,triceps-long,1
+Plantar Fascia,*,soleus,0.4

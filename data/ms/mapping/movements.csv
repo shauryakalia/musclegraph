@@ -1,0 +1,63 @@
+id,name,demo
+squat,Squat,back-squat
+leg-press,Leg press,leg-press
+lunge,Lunge / single-leg squat,bulgarian-split-squat
+jump,Jump / plyometric,jump
+knee-extension,Knee extension,leg-extension
+leg-curl,Knee flexion (leg curl),prone-leg-curl
+hinge,Hip hinge,romanian-deadlift
+bridge,Hip thrust / bridge,hip-thrust
+hip-extension,Hip extension (kickback),hip-thrust
+back-extension,Back extension,back-extension
+hip-abduction,Hip abduction,adductor-abductor
+hip-adduction,Hip adduction,adductor-abductor
+calf-raise,Calf raise (straight knee),calf-raise
+calf-raise-seated,Calf raise (bent knee),seated-calf-raise
+tibialis,Ankle dorsiflexion,tibialis-raise
+horizontal-press,Horizontal press,bench-press
+incline-press,Incline press,incline-press
+decline-press,Decline press,bench-press
+push-up,Push-up,push-up
+dip,Dip,dips
+chest-fly,Chest fly,cable-fly
+incline-fly,Incline / low-to-high fly,cable-fly
+pullover,Pullover / straight-arm pulldown,lat-pulldown
+vertical-press,Overhead press,shoulder-press
+lateral-raise,Lateral raise,cable-lateral-raise
+front-raise,Front raise,shoulder-press
+rear-delt,Rear delt fly / face pull,rear-delt-fly
+upright-row,Upright row,shrug
+rotator-cuff,Shoulder rotation,cable-external-rotation
+y-raise,Prone Y / T raise,y-raise
+shrug,Shrug,shrug
+vertical-pull,Vertical pull,pull-up
+horizontal-pull,Row,seated-row
+bent-row,Bent-over row,bent-over-row
+curl,Biceps curl,biceps-curl
+curl-short,Preacher / concentration curl,biceps-curl
+curl-long,Incline / drag curl,biceps-curl
+curl-neutral,Hammer curl,hammer-curl
+curl-reverse,Reverse curl,reverse-curl
+triceps-overhead,Overhead triceps extension,triceps-extension
+triceps-lying,Lying triceps extension,triceps-extension
+triceps-pushdown,Triceps pushdown,triceps-pushdown
+triceps-reverse,Reverse-grip pushdown,triceps-pushdown
+triceps-kickback,Triceps kickback,triceps-pushdown
+wrist-curl,Wrist curl,wrist-curl
+wrist-extension,Reverse wrist curl,wrist-curl
+wrist-rotation,Forearm rotation,pronation-supination
+grip,Grip hold,farmers-carry
+carry,Loaded carry,farmers-carry
+olympic,Olympic lift,barbell-clean
+sled,Sled push / drag,sled
+get-up,Get-up / windmill,get-up
+battle-ropes,Battle ropes,battle-ropes
+throw-slam,Throw / slam,throw-slam
+trunk-flexion,Crunch / sit-up,cable-crunch
+leg-raise,Leg / knee raise,hanging-leg-raise
+rotation,Trunk rotation,cable-chop
+lateral-flexion,Side bend / side plank,cable-chop
+anti-extension,Plank / rollout,bird-dog
+neck,Neck,neck-training
+stretch,Stretch / mobility,
+general,Other,

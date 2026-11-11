@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import Atlas from "@/components/Atlas";
-import { loadAtlasData } from "@/lib/load-data";
+import MuscleGraph from "@/components/MuscleGraph";
+import { loadMuscleGraphData } from "@/lib/load-data";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Exercise Atlas",
+  title: "Muscle Graph",
   description:
     "Strength-training reference: see how each exercise is done and which muscles it trains, find exercises for any muscle, or compare two exercises muscle by muscle.",
 };
@@ -20,10 +20,14 @@ export const viewport: Viewport = {
   ],
 };
 
-/* The atlas is rendered here, in the root layout, so it stays mounted while moving between
+/* The muscle graph is rendered here, in the root layout, so it stays mounted while moving between
  * "/" and "/exercises/<id>/". Pages only add their own <title>/description. */
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const { data } = loadAtlasData();
+  /* Only the small reference tables are embedded in the page. The exercise list (/data/index.json) and each
+   * exercise's text (/data/ex/<id>.json) are fetched by the browser, so a 1,200-exercise database doesn't make
+   * every page heavy. */
+  const { data } = loadMuscleGraphData();
+  const ref = { muscles: data.muscles, groups: data.groups, categories: data.categories, sources: data.sources };
   return (
     <html lang="en">
       <head>
@@ -33,7 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
       </head>
       <body>
-        <Atlas data={data}>{children}</Atlas>
+        <MuscleGraph data={ref}>{children}</MuscleGraph>
       </body>
     </html>
   );

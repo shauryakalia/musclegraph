@@ -1,4 +1,4 @@
-/* Exercise Atlas styles — carried over from the original single-file page. */
+/* Muscle Graph styles — carried over from the original single-file page. */
 :root{color-scheme:light dark}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -349,6 +349,29 @@ h1,h2,h3{font-family:"Barlow Condensed","Barlow",sans-serif;font-weight:700;marg
 @media (prefers-reduced-motion:reduce){.m{transition:none}}
 
 /* additions for the Next.js version */
-.nodemo{display:flex;align-items:center;justify-content:center;width:100%;height:100%;color:var(--ink-3);font-size:12px;text-align:center;padding:6px}
-.demo .nodemo,.cdemo .nodemo{aspect-ratio:11/9;font-size:14px}
 .nf{margin:16px 0 0;padding:10px 14px;border-radius:12px;background:var(--pri-soft);color:var(--pri-ink);font-weight:600}
+
+/* ---- imported database: filters, paging, evidence, facts, joints ---- */
+.filter-row{flex-wrap:wrap}
+.loading{padding:28px 10px;text-align:center;color:var(--ink-3)}
+.loading.small{padding:10px 0;text-align:left}
+.more{display:block;width:100%;margin:8px 0 4px;height:40px;border:1px dashed var(--line-2);border-radius:10px;background:transparent;color:var(--ink-2);font:600 14px "Barlow",sans-serif;cursor:pointer}
+.more span{font-weight:400;color:var(--ink-3)}
+.more:hover,.more:focus-visible{background:var(--surface-2);color:var(--ink);outline:0}
+.emg{display:inline-block;margin-left:6px;padding:0 5px;border-radius:5px;background:var(--pri-soft);color:var(--pri-ink);font:700 10px/16px "Barlow",sans-serif;letter-spacing:.06em;text-decoration:none;vertical-align:middle;cursor:help}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 0}
+.facts div{display:flex;gap:6px;font-size:13.5px}
+.facts dt{color:var(--ink-3)}
+.facts dd{margin:0;font-weight:600}
+.jlist li::before{background:var(--ink-3)}
+.jlist .jn{display:flex;flex-direction:column;min-width:0}
+.jlist .jn em{font-style:normal;font-size:12.5px;color:var(--ink-3)}
+.mtr.jt i.f{background:var(--ink-2)}
+.evidence p{margin:0 0 8px;font-size:14px;color:var(--ink-2)}
+.evidence .bul span{color:var(--ink-3);font-size:13px}
+.evidence .src{font-size:13px;color:var(--ink-3)}
+.evidence a{color:var(--pri-ink)}
+.crow.static{cursor:default}
+.nojs{padding:16px}
+.ex.nothumb{grid-template-columns:minmax(0,1fr) auto}
+@media (max-width:520px){.ex.nothumb{grid-template-columns:minmax(0,1fr)}.ex.nothumb .role{grid-column:1}}

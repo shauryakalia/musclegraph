@@ -1,0 +1,24 @@
+ms_muscle,category,joints,stretch_demo
+Quads,legs,knee:5;hip:3;ankle:2,hip-flexor-stretch
+Calves,legs,ankle:5,calf-stretch
+Adductors,legs,hip:5,cossack-squat
+Abductors,glutes-hamstrings,hip:5,cossack-squat
+Glutes,glutes-hamstrings,hip:5;knee:2,cossack-squat
+Hamstrings,glutes-hamstrings,hip:4;knee:4,cossack-squat
+IT Band,legs,hip:3;knee:3,cossack-squat
+Plantar Fascia,legs,ankle:4,knee-to-wall
+Chest,chest,shoulder:5;elbow:3,band-pass-through
+Lats,back,shoulder:5;scapula:3;elbow:3,thread-the-needle
+Upper Back,back,scapula:5;shoulder:4;elbow:3,thread-the-needle
+Middle Back,back,scapula:5;shoulder:4;elbow:3,thread-the-needle
+Lower Back,back,lower-spine:5;hip:3,cat-cow
+Shoulders,shoulders,shoulder:5;scapula:3;elbow:2,band-pass-through
+Traps,neck-traps,scapula:5,wall-slide
+Neck,neck-traps,upper-spine:3,thoracic-extension
+Biceps,arms-grip,elbow:5;shoulder:1,wrist-stretch
+Triceps,arms-grip,elbow:5;shoulder:2,triceps-stretch
+Forearms,arms-grip,wrist:5;elbow:2,wrist-stretch
+Palmar Fascia,arms-grip,wrist:4,wrist-stretch
+Abs,core-power,lower-spine:4;upper-spine:2;hip:2,cat-cow
+Obliques,core-power,lower-spine:4;upper-spine:3;hip:2,thread-the-needle
+Hip Flexors,core-power,hip:5;lower-spine:2,hip-flexor-stretch

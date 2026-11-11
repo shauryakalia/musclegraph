@@ -1,12 +1,13 @@
 "use client";
-/* The whole interactive atlas. It lives in the root layout so it stays mounted while the URL moves
+/* The whole interactive muscle graph. It lives in the root layout so it stays mounted while the URL moves
  * between "/" and "/exercises/<id>/"; the URL decides which exercise is open, so every exercise has a
  * real, prerendered page and the browser back button works. */
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { JOINTS } from "@/lib/anatomy";
 import { bestMatch, buildModel, cat, exercisePath, idFromPath, makeView, uniq } from "@/lib/model";
-import type { AtlasData, Gender, Level } from "@/lib/types";
+import { useIndex } from "@/lib/use-data";
+import type { RefData, Gender, Level } from "@/lib/types";
 import { useReducedMotion } from "./bits";
 import { Catalog, type ListGroup } from "./Catalog";
 import { Compare } from "./Compare";
@@ -17,7 +18,7 @@ import { Readout } from "./Readout";
 
 interface UiState {
   mode: Mode; level: Level; gender: Gender;
-  session: string; qRaw: string; muscle: string | null; joint: string | null;
+  session: string; equip: string; skill: string; qRaw: string; muscle: string | null; joint: string | null;
   picks: string[];
   hover: string | null; hoverJ: string | null; tap: string | null; tapJ: string | null;
   ca: string; cb: string;
@@ -31,7 +32,10 @@ const store = {
 // useLayoutEffect warns during server rendering; this runs only in the browser anyway
 const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
-export default function Atlas({ data, children }: { data: AtlasData; children?: ReactNode }) {
+export default function MuscleGraph({ data: ref, children }: { data: RefData; children?: ReactNode }) {
+  /* the exercise list is a separate small file, so the page itself stays light (see scripts/build-public-data.ts) */
+  const index = useIndex();
+  const data = useMemo(() => ({ ...ref, exercises: index.status === "ok" ? index.value : [] }), [ref, index]);
   const model = useMemo(() => buildModel(data), [data]);
   const router = useRouter();
   const pathname = usePathname();
@@ -44,16 +48,12 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
   const [sel, setSel] = useState<string | null>(routeSel);
   useEffect(() => { setSel(routeSel); }, [routeSel]);
 
-  const [st, setSt] = useState<UiState>(() => {
-    const ids = model.exercises.map((e) => e.id);
-    return {
-      mode: "browse", level: "basic", gender: "male", session: "all", qRaw: "", muscle: null, joint: null, picks: [],
-      hover: null, hoverJ: null, tap: null, tapJ: null,
-      ca: ids.indexOf("back-squat") >= 0 ? "back-squat" : ids[0],
-      cb: ids.indexOf("leg-press") >= 0 ? "leg-press" : ids[Math.min(1, ids.length - 1)],
-      hl: null, flash: null,
-    };
-  });
+  const [st, setSt] = useState<UiState>(() => ({
+    mode: "browse", level: "basic", gender: "male", session: "all", equip: "", skill: "", qRaw: "", muscle: null, joint: null, picks: [],
+    hover: null, hoverJ: null, tap: null, tapJ: null,
+    ca: "back-squat", cb: "leg-press",
+    hl: null, flash: null,
+  }));
   const stRef = useRef(st), selRef = useRef(sel);
   stRef.current = st;
   selRef.current = sel;
@@ -62,7 +62,7 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
 
   /* saved body type and detail level (read after hydration so server and client HTML match) */
   useEffect(() => {
-    const g = store.get("atlas-gender"), l = store.get("atlas-level");
+    const g = store.get("musclegraph-gender"), l = store.get("musclegraph-level");
     set({ gender: g === "female" ? "female" : "male", level: l === "advanced" ? "advanced" : "basic" });
   }, [set]);
 
@@ -117,11 +117,11 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
     const unitOf = (m: string) => makeView(model, stRef.current.level).unitOf(m);
 
     return {
-      setGender(g) { if (g === stRef.current.gender) return; set({ gender: g }); store.set("atlas-gender", g); },
+      setGender(g) { if (g === stRef.current.gender) return; set({ gender: g }); store.set("musclegraph-gender", g); },
       setLevel(l) {
         if (l === stRef.current.level) return;
         set((s) => ({ level: l, muscle: null, hover: null, tap: null, hoverJ: null, tapJ: null, hl: null, flash: null, joint: l === "basic" ? null : s.joint }));
-        store.set("atlas-level", l);
+        store.set("musclegraph-level", l);
       },
       setMode(m) {
         const s = stRef.current;
@@ -133,6 +133,8 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
         setMode(m);
       },
       setSession(s) { set({ session: s }); },
+      setEquip(e) { set({ equip: e }); },
+      setSkill(l) { set({ skill: l }); },
       setQuery(raw) { set({ qRaw: raw }); },
       setMuscle,
       setJoint,
@@ -193,7 +195,8 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
 
   /* ----- derived view state ----- */
   const env = useMemo<Env>(() => ({ model, v, gender: st.gender, level: st.level, reduceMotion }), [model, v, st.gender, st.level, reduceMotion]);
-  const cmp = st.mode === "compare";
+  /* Compare needs both exercises to be loaded */
+  const cmp = st.mode === "compare" && !!model.byId[st.ca] && !!model.byId[st.cb];
 
   const paint = useMemo<Paint>(() => {
     const cls: Record<string, string> = {};
@@ -229,6 +232,8 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
       if (st.muscle && !v.trains(e, st.muscle)) return false;
       if (st.joint && e.joints.indexOf(st.joint) < 0) return false;
       if (st.session !== "all" && e.category !== st.session) return false;
+      if (st.equip && e.equipment !== st.equip) return false;
+      if (st.skill && e.level !== st.skill) return false;
       return true;
     };
     const EX = model.exercises;
@@ -239,7 +244,7 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
     if (st.joint) return [{ title: jName(st.joint), items: EX.filter(matches).sort((a, b) => (b.kind ? 1 : 0) - (a.kind ? 1 : 0)) }];
     const cats = st.session === "all" ? model.data.categories : model.data.categories.filter((c) => c.id === st.session);
     return cats.map((c) => ({ title: c.name, items: EX.filter((e) => e.category === c.id && matches(e)) })).filter((g) => g.items.length);
-  }, [model, v, st.qRaw, st.muscle, st.joint, st.session]);
+  }, [model, v, st.qRaw, st.muscle, st.joint, st.session, st.equip, st.skill]);
 
   const order = useMemo(() => uniq(groups.flatMap((g) => g.items.map((e) => e.id))), [groups]);
   const selEx = sel ? model.byId[sel] : null;
@@ -257,11 +262,11 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
             <header className="top">
               <div>
                 <div className="kicker">Strength training reference</div>
-                <h1>Exercise <span>Atlas</span></h1>
+                <h1>Muscle <span>Graph</span></h1>
                 <p className="lede">Pick an exercise to see how it&apos;s done and which muscles it trains, tap any muscle to find the exercises that hit it, or compare two exercises muscle by muscle.</p>
               </div>
               <dl className="stats">
-                <div><dt>Exercises</dt><dd>{model.exercises.length}</dd></div>
+                <div><dt>Exercises</dt><dd>{index.status === "ok" ? model.exercises.length.toLocaleString("en-US") : "…"}</dd></div>
                 <div><dt>Body areas</dt><dd>{model.data.categories.length}</dd></div>
                 <div><dt>{v.adv ? "Muscles" : "Muscle groups"}</dt><dd>{Object.keys(v.units).length}</dd></div>
               </dl>
@@ -278,7 +283,7 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
                   </div>
                 </div>
                 <Figs pfx="m" />
-                <Readout mode={st.mode} hover={st.hover} hoverJ={st.hoverJ} tap={st.tap} tapJ={st.tapJ} sel={sel} muscle={st.muscle} joint={st.joint} ca={st.ca} cb={st.cb} />
+                <Readout mode={cmp ? "compare" : "browse"} hover={st.hover} hoverJ={st.hoverJ} tap={st.tap} tapJ={st.tapJ} sel={sel} muscle={st.muscle} joint={st.joint} ca={st.ca} cb={st.cb} />
               </section>
 
               <section className="panel card" id="panel" ref={panelRef}>
@@ -299,7 +304,12 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
                     {(["browse", "compare"] as const).map((m) => <button key={m} type="button" aria-pressed={st.mode === m} onClick={() => actions.setMode(m)}>{m === "browse" ? "Browse" : "Compare"}</button>)}
                   </div>
                 </div>
-                <Catalog hidden={cmp || !!selEx} session={st.session} qRaw={st.qRaw} muscle={st.muscle} joint={st.joint} groups={groups} picks={st.picks} />
+                {index.status !== "ok" && (
+                  <div className="loading" role={index.status === "error" ? "alert" : "status"}>
+                    {index.status === "error" ? "Couldn\u2019t load the exercise list (" + index.message + "). Check your connection and reload the page." : "Loading exercises\u2026"}
+                  </div>
+                )}
+                <Catalog hidden={cmp || !!selEx || index.status !== "ok"} session={st.session} equip={st.equip} skill={st.skill} qRaw={st.qRaw} muscle={st.muscle} joint={st.joint} groups={groups} picks={st.picks} />
                 {!cmp && selEx && <Detail e={selEx} prev={prev} next={next} picks={st.picks} />}
                 {cmp && <Compare ca={st.ca} cb={st.cb} flash={st.flash} />}
               </section>
@@ -314,7 +324,7 @@ export default function Atlas({ data, children }: { data: AtlasData; children?: 
                 <button type="button" className="tray-x" aria-label="Clear compare selection" onClick={actions.clearPicks}>×</button>
               </div>
             )}
-            <p className="foot-note">Form demos are simplified loops of the start and end positions; use &quot;Watch a video demo&quot; for real footage. Primary and secondary muscles follow typical EMG and training research and shift with technique, grip and stance.</p>
+            <p className="foot-note">Form demos are simplified loops of the start and end positions; use &quot;Watch a video demo&quot; for real footage. Ratings marked EMG come from published electromyography studies; the others are estimated from each movement&apos;s anatomy and shift with technique, grip and stance.</p>
           </div>
         </PaintCtx.Provider>
       </ActionsCtx.Provider>

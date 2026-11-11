@@ -1,0 +1,90 @@
+source,study_exercise,exercise_ids,muscle_ids,kind,value,note
+ace-triceps,Triangle push-up,close-grip-push-up,triceps-long,pct_mvc,100,"Table 1, long head"
+ace-triceps,Triangle push-up,close-grip-push-up,triceps-lat,pct_mvc,100,"Table 1, lateral head"
+ace-triceps,Kickback,tricep-kickback;bent-over-dumbbell-kickback;one-arm-bent-over-dumbbell-kickback,triceps-long,pct_mvc,88,"Table 1, long head"
+ace-triceps,Kickback,tricep-kickback;bent-over-dumbbell-kickback;one-arm-bent-over-dumbbell-kickback,triceps-lat,pct_mvc,87,"Table 1, lateral head"
+ace-triceps,Dips,tricep-dip;weighted-tricep-dips,triceps-long,pct_mvc,87,"Table 1, long head; bodyweight in the study"
+ace-triceps,Dips,tricep-dip;weighted-tricep-dips,triceps-lat,pct_mvc,88,"Table 1, lateral head; bodyweight in the study"
+ace-triceps,Overhead triceps extension,one-arm-seated-overhead-tricep-extension,triceps-long,pct_mvc,81,"Table 1, long head"
+ace-triceps,Overhead triceps extension,one-arm-seated-overhead-tricep-extension,triceps-lat,pct_mvc,72,"Table 1, lateral head"
+ace-triceps,Rope pushdown,rope-tricep-extension,triceps-long,pct_mvc,81,"Table 1, long head"
+ace-triceps,Rope pushdown,rope-tricep-extension,triceps-lat,pct_mvc,67,"Table 1, lateral head"
+ace-triceps,Bar pushdown,cable-tricep-extension-with-v-bar,triceps-long,pct_mvc,75,"Table 1, long head; straight bar in the study"
+ace-triceps,Bar pushdown,cable-tricep-extension-with-v-bar,triceps-lat,pct_mvc,59,"Table 1, lateral head; straight bar in the study"
+ace-triceps,Lying barbell triceps extension,ez-bar-skullcrusher;lying-tricep-extension,triceps-long,pct_mvc,70,"Table 1, long head"
+ace-triceps,Lying barbell triceps extension,ez-bar-skullcrusher;lying-tricep-extension,triceps-lat,pct_mvc,55,"Table 1, lateral head"
+ace-triceps,Closed-grip bench press,close-grip-bench-press,triceps-long,pct_mvc,61,"Table 1, long head"
+ace-triceps,Closed-grip bench press,close-grip-bench-press,triceps-lat,pct_mvc,63,"Table 1, lateral head"
+ace-shoulders,Dumbbell shoulder press,seated-dumbbell-press;standing-dumbbell-press,delt-front,pct_mvc,74,"Table 1, anterior deltoid"
+ace-shoulders,Dumbbell shoulder press,seated-dumbbell-press;standing-dumbbell-press,delt-side,pct_mvc,62,"Table 2, medial deltoid"
+ace-shoulders,Dumbbell shoulder press,seated-dumbbell-press;standing-dumbbell-press,delt-rear,pct_mvc,10,"Table 3, posterior deltoid"
+ace-shoulders,Dumbbell front raise,dumbbell-front-raise;seated-dumbbell-front-raise,delt-front,pct_mvc,57,"Table 1"
+ace-shoulders,Dumbbell front raise,dumbbell-front-raise;seated-dumbbell-front-raise,delt-side,pct_mvc,36,"Table 2"
+ace-shoulders,Dumbbell front raise,dumbbell-front-raise;seated-dumbbell-front-raise,delt-rear,pct_mvc,9,"Table 3"
+ace-shoulders,Battling ropes,alternating-large-waves-battling-ropes;alternating-small-waves-battling-ropes;double-waves-battle-ropes,delt-front,pct_mvc,49,"Table 1"
+ace-shoulders,Battling ropes,alternating-large-waves-battling-ropes;alternating-small-waves-battling-ropes;double-waves-battle-ropes,delt-side,pct_mvc,37,"Table 2"
+ace-shoulders,Battling ropes,alternating-large-waves-battling-ropes;alternating-small-waves-battling-ropes;double-waves-battle-ropes,delt-rear,pct_mvc,38,"Table 3"
+ace-shoulders,Push-up,push-up,delt-front,pct_mvc,48,"Table 1"
+ace-shoulders,Push-up,push-up,delt-side,pct_mvc,13,"Table 2"
+ace-shoulders,Push-up,push-up,delt-rear,pct_mvc,6,"Table 3"
+ace-shoulders,Dips,tricep-dip;weighted-tricep-dips,delt-front,pct_mvc,41,"Table 1"
+ace-shoulders,Dips,tricep-dip;weighted-tricep-dips,delt-side,pct_mvc,7,"Table 2"
+ace-shoulders,Dips,tricep-dip;weighted-tricep-dips,delt-rear,pct_mvc,26,"Table 3"
+ace-shoulders,Barbell upright row,upright-row,delt-front,pct_mvc,33,"Table 1"
+ace-shoulders,Barbell upright row,upright-row,delt-side,pct_mvc,73,"Table 2"
+ace-shoulders,Barbell upright row,upright-row,delt-rear,pct_mvc,31,"Table 3"
+ace-shoulders,45-degree incline row,incline-bench-two-arm-dumbbell-row,delt-front,pct_mvc,6,"Table 1"
+ace-shoulders,45-degree incline row,incline-bench-two-arm-dumbbell-row,delt-side,pct_mvc,84,"Table 2"
+ace-shoulders,45-degree incline row,incline-bench-two-arm-dumbbell-row,delt-rear,pct_mvc,69,"Table 3"
+ace-shoulders,Seated rear lateral raise,alternate-seated-bent-over-dumbbell-reverse-fly;one-arm-seated-bent-over-dumbbell-reverse-fly,delt-front,pct_mvc,5,"Table 1"
+ace-shoulders,Seated rear lateral raise,alternate-seated-bent-over-dumbbell-reverse-fly;one-arm-seated-bent-over-dumbbell-reverse-fly,delt-side,pct_mvc,70,"Table 2"
+ace-shoulders,Seated rear lateral raise,alternate-seated-bent-over-dumbbell-reverse-fly;one-arm-seated-bent-over-dumbbell-reverse-fly,delt-rear,pct_mvc,73,"Table 3"
+ace-chest,Barbell bench press,barbell-bench-press,pec-upper;pec-lower,pct_ref,100,"reference exercise"
+ace-chest,Pec deck,pec-dec,pec-upper;pec-lower,pct_ref,98,
+ace-chest,Bent-forward cable crossover,cable-crossovers-bent-over,pec-upper;pec-lower,pct_ref,93,"closest catalogue match: standing high-to-low cable fly"
+ace-chest,Seated chest press machine,hammer-strength-bench-press,pec-upper;pec-lower,pct_ref,79,
+ace-chest,Incline dumbbell fly,incline-dumbbell-flys,pec-upper;pec-lower,pct_ref,69,
+ace-chest,Dips,chest-dip,pec-upper;pec-lower,pct_ref,69,
+ace-chest,Suspended push-up,ring-push-up,pec-upper;pec-lower,pct_ref,63,
+ace-chest,Stability-ball push-up,swiss-ball-push-up,pec-upper;pec-lower,pct_ref,61,
+ace-chest,Standard push-up,push-up,pec-upper;pec-lower,pct_ref,61,
+ace-biceps,Concentration curl,concentration-cur,biceps-long;biceps-short,top,,"significantly higher biceps activation than the other seven exercises"
+ace-biceps,"Barbell, EZ-bar, cable, incline and preacher curls and chin-up",standing-barbell-curl;ez-bar-curl;cable-curl;incline-dumbbell-curl;preacher-curl;chin-up,biceps-long;biceps-short,high,,"all tested within about 70–81% of the biceps' maximum; the article gives no numbers, so only the band is used"
+ace-back,Pull-up,pull-up,lats,top,,"pull-up and chin-up gave significantly greater lat activation than the other six exercises"
+ace-back,Chin-up,chin-up,lats,top,,
+ace-back,Lat pull-down,lat-pull-down,lats,high,,"among the exercises that tested relatively well for the lats"
+ace-back,Seated row,seated-row,lats,high,,
+ace-back,Inverted row,high-inverted-row,lats,high,,
+ace-back,Bent-over row,bent-over-barbell-row,lats,high,,
+ace-back,Bent-over row,bent-over-barbell-row,traps-mid,high,,"one of the four best for the middle trapezius and rhomboids"
+ace-back,Bent-over row,bent-over-barbell-row,traps-lower,high,,"significantly better than six of the seven other exercises for the lower trapezius"
+ace-back,Bent-over row,bent-over-barbell-row,lower-back,top,,"best of the eight for the erector spinae"
+ace-back,Bent-over row,bent-over-barbell-row,infraspinatus,high,,
+ace-back,Seated row,seated-row,traps-mid,high,,
+ace-back,Inverted row,high-inverted-row,traps-mid,high,,
+ace-back,Inverted row,high-inverted-row,infraspinatus,high,,
+ace-back,Pull-up,pull-up,infraspinatus,high,,
+ace-back,Chin-up,chin-up,infraspinatus,high,,
+ace-glutes,Lunge,barbell-lunge;dumbbell-lunge,glute-med,high,,"significantly more gluteus medius activation than the squat"
+ace-glutes,Step-up,dumbbell-step-up;barbell-step-ups,glute-med,high,,
+ace-glutes,Lunge,barbell-lunge;dumbbell-lunge,hams-bf;hams-semi,high,,"significantly more hamstring activity than the squat"
+ace-glutes,Step-up,dumbbell-step-up;barbell-step-ups,hams-bf;hams-semi,high,,
+ace-glutes,Leg press,45-degree-leg-press,glutes;glute-med,lower,,"significantly less gluteal activity than the squat"
+ace-hamstrings,Prone leg curl,leg-curl,hams-bf;hams-semi,top,,"reference exercise"
+ace-hamstrings,Kettlebell swing,kettlebell-swing,hams-bf;hams-semi,high,,"similar biceps femoris and semitendinosus activity to the prone leg curl"
+ace-hamstrings,Single-leg Romanian deadlift,single-leg-barbell-romanian-deadlift,hams-bf;hams-semi,high,,"similar to the prone leg curl"
+ace-hamstrings,Stability-ball hamstring curl,exercise-ball-hamstring-curl,hams-semi,top,,"significantly higher semitendinosus activation than the prone leg curl"
+ace-hamstrings,Reverse hip raise,reverse-hyperextension,hams-semi,top,,
+ace-hamstrings,Glute-ham raise,glute-ham-raise,hams-semi,top,,"bodyweight version significantly higher semitendinosus activation"
+ace-hamstrings,Seated leg curl,seated-leg-curl,hams-bf,lower,,"significantly lower biceps femoris activation than the prone leg curl"
+ace-hamstrings,Romanian deadlift,romanian-deadlift,hams-bf,lower,,
+ace-hamstrings,Stability-ball hamstring curl,exercise-ball-hamstring-curl,hams-bf,lower,,
+ace-hamstrings,Reverse hip raise,reverse-hyperextension,hams-bf,lower,,
+ace-hamstrings,Glute-ham raise,glute-ham-raise,hams-bf,lower,,
+ace-abs,Traditional crunch,ab-crunch,abs-upper;abs-lower,top,,"reference exercise: 68.4% of MVC for the upper and lower rectus abdominis combined; no exercise or device beat it"
+ace-abs,Front plank,hover,abs-upper;abs-lower,lower,,"significantly lower rectus abdominis activity than the crunch"
+ace-abs,Side plank,side-hover,abs-upper;abs-lower,lower,,
+ace-abs,Decline bench curl-up,decline-situp,obliques,high,,"significantly higher external oblique activity than the crunch"
+ace-abs,Bicycle crunch,abdominal-air-bike,quads-rf,high,,"significantly higher rectus femoris activity than the crunch"
+ace-abs,Front plank,hover,quads-rf,high,,
+ace-abs,Decline bench curl-up,decline-situp,quads-rf,high,,

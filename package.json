@@ -1,5 +1,5 @@
 {
-  "name": "exercise-atlas",
+  "name": "muscle-graph",
   "version": "1.0.0",
   "private": true,
   "description": "Strength-training reference: muscle map, exercise demos and side-by-side comparisons. Data lives in CSV files under data/.",
@@ -8,11 +8,15 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "tsx scripts/build-public-data.ts && next dev",
+    "build": "tsx scripts/build-public-data.ts && next build",
     "preview": "serve out",
+    "data:build": "tsx scripts/build-public-data.ts",
     "check-data": "tsx scripts/check-data.ts",
-    "typecheck": "tsc --noEmit"
+    "ms:scrape": "tsx scripts/ms-scrape.ts",
+    "ms:build": "tsx scripts/ms-build.ts",
+    "typecheck": "tsc --noEmit",
+    "verify": "pnpm check-data && pnpm typecheck && pnpm build && node scripts/verify-out.mjs"
   },
   "dependencies": {
     "next": "16.4.5",

@@ -3,10 +3,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { RATING } from "@/lib/model";
 import { resolveFrames, sceneSvg, fitBox, type Demo } from "@/lib/stick";
 import { DEMOS } from "@/data/demos";
-import type { Exercise, Gender } from "@/lib/types";
+import type { ExerciseCore, Gender } from "@/lib/types";
 import { useActions } from "./context";
 
-export const demoOf = (e: Exercise): Demo | null => (e.demo ? DEMOS[e.demo] ?? null : null);
+export const demoOf = (e: ExerciseCore): Demo | null => (e.demo ? DEMOS[e.demo] ?? null : null);
 
 export function Meter({ n, cls }: { n: number; cls: string }) {
   return (
@@ -36,10 +36,10 @@ export function PlayIcon({ playing }: { playing: boolean }) {
 }
 
 const thumbs = new Map<string, string>();
-/** Static list thumbnail of an exercise's demo. */
-export function Thumb({ e, gender }: { e: Exercise; gender: Gender }) {
+/** Static list thumbnail of an exercise's demo; nothing when the exercise has no demo. */
+export function Thumb({ e, gender }: { e: ExerciseCore; gender: Gender }) {
   const demo = demoOf(e);
-  if (!demo) return <span className="thumb"><span className="nodemo">No demo</span></span>;
+  if (!demo) return null;
   const key = e.demo + "|" + gender;
   let html = thumbs.get(key);
   if (html == null) {

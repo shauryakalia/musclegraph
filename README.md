@@ -1,4 +1,4 @@
-# Exercise Atlas
+# Muscle Graph
 
 A strength-training reference: a muscle map you can click, animated form demos for every exercise, and a side-by-side comparison of any two exercises, muscle by muscle.
 
@@ -10,10 +10,13 @@ You need Node.js 20.9+ and pnpm (`npm i -g pnpm` or `corepack enable`).
 
 ```bash
 pnpm install
-pnpm dev          # http://localhost:3000 — edit a CSV, refresh the page, see the change
+pnpm dev          # http://localhost:3000 — after editing a CSV, run `pnpm data:build` (or restart) and refresh
 pnpm build        # writes the static site to ./out
 pnpm preview      # serves ./out locally to check the real build
 pnpm check-data   # validates the CSVs without building
+pnpm data:build   # regenerates public/data/ (the split data the app fetches); dev and build run it for you
+pnpm ms:build     # rebuilds the imported 1,211-exercise database in data/ms/ from its mapping and evidence tables
+pnpm verify       # check-data, typecheck, build and check the export
 ```
 
 Next.js has its own dev server and bundler (Turbopack), so there's no Vite in this project; `pnpm dev` is the equivalent of `vite`.
@@ -88,7 +91,7 @@ Each muscle's shape on the body map is drawn from `src/lib/anatomy-data.ts`, key
 
 ### Adding an exercise
 
-1. Add a row to `exercises.csv`. If there's no animation for it yet, set `demo` to the closest existing one (e.g. `back-squat` for a goblet squat), or leave it empty to show "No demo yet".
+1. Add a row to `exercises.csv`. If there's no animation for it, leave `demo` empty and the demo area (and list thumbnail) is simply left out; to reuse an existing animation, set `demo` to its id (e.g. `back-squat` for a goblet squat).
 2. Add one row per muscle to `exercise_muscles.csv`.
 3. Run `pnpm check-data` (or just refresh `pnpm dev`).
 
@@ -130,7 +133,7 @@ These are drawings rather than data, so they stay in code:
 ```
 data/                     the CSV database
 src/app/                  Next.js routes: / , /exercises/[id]/ , 404, global CSS
-src/components/           Atlas (state, routing), Figures (muscle map), Catalog (list),
+src/components/           MuscleGraph (state, routing), Figures (muscle map), Catalog (list),
                           Detail, Compare, Readout, shared bits
 src/lib/load-data.ts      reads + validates the CSVs at build time
 src/lib/csv.ts            CSV parser (quotes, commas and line breaks inside cells, BOM)
@@ -139,6 +142,8 @@ src/lib/anatomy*.ts       body map geometry
 src/lib/stick.ts          stick-figure animation engine
 src/data/demos.ts         the animations
 scripts/check-data.ts     `pnpm check-data`
+scripts/ms-build.ts       `pnpm ms:build` (imported database; see project_spec.md §6.4)
+scripts/build-public-data.ts  `pnpm data:build`
 ```
 
 The whole interactive page is one client component rendered from the root layout, so it stays mounted while the URL changes between `/` and `/exercises/<id>/`. Each route is still prerendered with that exercise open, with its own `<title>` and description. Body type and Basic/Advanced are remembered per browser (`localStorage`).

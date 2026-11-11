@@ -1,5 +1,5 @@
 "use client";
-import { Fragment, memo, useMemo, type MouseEvent } from "react";
+import { Fragment, memo, useEffect, useMemo, useState, type MouseEvent } from "react";
 import { buildFigure, type View } from "@/lib/anatomy";
 import { useActions, useEnv, usePaint } from "./context";
 
@@ -8,6 +8,9 @@ const canHover = () => typeof window !== "undefined" && window.matchMedia("(hove
 /** Front + back figures with hover/click handling. `pfx` keeps pattern ids unique per copy. */
 export const Figs = memo(function Figs({ pfx, mini }: { pfx: string; mini?: boolean }) {
   const act = useActions();
+  /* the figures are drawn in the browser only, which keeps every prerendered page small */
+  const [ready, setReady] = useState(false);
+  useEffect(() => setReady(true), []);
   const target = (ev: MouseEvent) => {
     const el = ev.target as Element;
     const j = el.closest?.(".jt");
@@ -24,8 +27,8 @@ export const Figs = memo(function Figs({ pfx, mini }: { pfx: string; mini?: bool
       onMouseOut={(ev) => { const t = target(ev); if (t) act.hover(t.kind, null); }}
       onClick={(ev) => { const t = target(ev); if (t) act.pickOnMap(t.kind, t.id, !!mini); }}
     >
-      <figure><div className="fig"><Figure view="front" pfx={pfx} /></div><figcaption>Front</figcaption></figure>
-      <figure><div className="fig"><Figure view="back" pfx={pfx} /></div><figcaption>Back</figcaption></figure>
+      <figure><div className="fig">{ready && <Figure view="front" pfx={pfx} />}</div><figcaption>Front</figcaption></figure>
+      <figure><div className="fig">{ready && <Figure view="back" pfx={pfx} />}</div><figcaption>Back</figcaption></figure>
     </div>
   );
 });

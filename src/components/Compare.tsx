@@ -2,7 +2,8 @@
 import { memo, useEffect, useMemo, useRef } from "react";
 import { CAT, SCALE_LAB, cat, uniq } from "@/lib/model";
 import { orderFor, poseFrom, resolveFrames, sceneSvg, fitBox } from "@/lib/stick";
-import type { Exercise } from "@/lib/types";
+import { JOINTS } from "@/lib/anatomy";
+import type { ExerciseCore } from "@/lib/types";
 import { Meter, PlayIcon, demoOf, useLoop } from "./bits";
 import { useActions, useEnv } from "./context";
 import { Figs } from "./Figures";
@@ -38,6 +39,10 @@ export const Compare = memo(function Compare({ ca, cb, flash }: Props) {
       </optgroup>
     ));
 
+  const isMeasured = (e: ExerciseCore, u: string) => (v.adv ? e.measured.includes(u) : e.measured.some((m) => model.groupOf[m] === u));
+  const jointIds = uniq(Object.keys(ea.jointScores).concat(Object.keys(eb.jointScores))).sort((p, q) =>
+    Math.max(eb.jointScores[q] || 0, ea.jointScores[q] || 0) - Math.max(eb.jointScores[p] || 0, ea.jointScores[p] || 0));
+
   const rows = (list: string[]) =>
     list.map((u) => {
       const a = XA[u] || 0, b = XB[u] || 0, c = cat(a, b);
@@ -47,7 +52,7 @@ export const Compare = memo(function Compare({ ca, cb, flash }: Props) {
           onMouseOut={(ev) => { if (!(ev.currentTarget as Element).contains(ev.relatedTarget as Node)) act.highlight(null); }}
           onFocus={() => act.highlight(u)}>
           <i className={"sw c" + c} />
-          <span className="cn">{v.uName(u)}</span>
+          <span className="cn">{v.uName(u)}{(isMeasured(ea, u) || isMeasured(eb, u)) && <abbr className="emg" title={"Rating from a published EMG study: " + [isMeasured(ea, u) && "A", isMeasured(eb, u) && "B"].filter(Boolean).join(" and ")}>EMG</abbr>}</span>
           <span className="cm">
             <span><b>A</b>{a ? <Meter n={a} cls="a" /> : <em>—</em>}</span>
             <span><b>B</b>{b ? <Meter n={b} cls="b" /> : <em>—</em>}</span>
@@ -92,15 +97,34 @@ export const Compare = memo(function Compare({ ca, cb, flash }: Props) {
         {onlyA.length > 0 && (<><h3>Only in A · {ea.name} <span>{onlyA.length}</span></h3>{rows(onlyA)}</>)}
         {onlyB.length > 0 && (<><h3>Only in B · {eb.name} <span>{onlyB.length}</span></h3>{rows(onlyB)}</>)}
       </div>
+      {v.adv && jointIds.length > 0 && (
+        <div className="ctable">
+          <h3>Joints <span>{jointIds.length}</span></h3>
+          {jointIds.map((j) => {
+            const a = ea.jointScores[j] || 0, b = eb.jointScores[j] || 0, c = cat(a, b);
+            return (
+              <div key={j} className="crow static">
+                <i className={"sw c" + c} />
+                <span className="cn">{JOINTS[j]?.name ?? j}</span>
+                <span className="cm">
+                  <span><b>A</b>{a ? <Meter n={a} cls="a" /> : <em>—</em>}</span>
+                  <span><b>B</b>{b ? <Meter n={b} cls="b" /> : <em>—</em>}</span>
+                </span>
+                <span className="cv">{CAT[c]}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
       <p className="note">
-        Ratings are estimates of how hard each exercise works (or, for stretches, stretches) a muscle in a hard set: 5 main target, 4 major, 3 moderate, 2 assists, 1 minor. They come from EMG and training studies and are for comparing, not exact values; range of motion, load, grip and stance all shift them.
+        Ratings marked <abbr className="emg">EMG</abbr> are taken from published electromyography studies; every other rating is estimated from the movement&apos;s anatomy, and joint scores from joint mechanics. Ratings show how hard each exercise works (or, for stretches, stretches) a muscle in a hard set: 5 main target, 4 major, 3 moderate, 2 assists, 1 minor. They are for comparing, not exact values; range of motion, load, grip and stance all shift them.
         {v.adv ? "" : " In Basic view each group takes the highest rating of the muscles inside it."}
       </p>
     </section>
   );
 });
 
-function CompareDemos({ ea, eb, gender, reduce }: { ea: Exercise; eb: Exercise; gender: "male" | "female"; reduce: boolean }) {
+function CompareDemos({ ea, eb, gender, reduce }: { ea: ExerciseCore; eb: ExerciseCore; gender: "male" | "female"; reduce: boolean }) {
   const refs = { a: useRef<SVGSVGElement>(null), b: useRef<SVGSVGElement>(null) };
   const slots = useMemo(() => ([["a", ea], ["b", eb]] as const).map(([k, e]) => {
     const demo = demoOf(e);
@@ -113,16 +137,14 @@ function CompareDemos({ ea, eb, gender, reduce }: { ea: Exercise; eb: Exercise; 
     ea.id + eb.id + gender,
     reduce,
   );
+  const shown = slots.filter((s) => s.demo);
+  if (!shown.length) return null;
   return (
     <>
-      <div className="cmp-demos">
-        {slots.map((s) => (
+      <div className="cmp-demos" style={shown.length === 1 ? { gridTemplateColumns: "minmax(0, 1fr)" } : undefined}>
+        {shown.map((s) => (
           <figure key={s.k} className="cdemo">
-            {s.demo ? (
-              <svg ref={refs[s.k]} viewBox={fitBox(s.demo)} role="img" aria-label={"Demo for " + s.e.name} dangerouslySetInnerHTML={{ __html: s.initial }} />
-            ) : (
-              <div className="nodemo">No demo yet</div>
-            )}
+            <svg ref={refs[s.k]} viewBox={fitBox(s.demo!)} role="img" aria-label={"Demo for " + s.e.name} dangerouslySetInnerHTML={{ __html: s.initial }} />
             <figcaption><b className={"badge " + s.k}>{s.k.toUpperCase()}</b><span>{s.e.name}</span></figcaption>
           </figure>
         ))}
@@ -131,7 +153,7 @@ function CompareDemos({ ea, eb, gender, reduce }: { ea: Exercise; eb: Exercise; 
         <button className="play" type="button" aria-label={loop.playing ? "Pause demo" : "Play demo"} onClick={() => (loop.playing ? loop.pause() : loop.play())}>
           <PlayIcon playing={loop.playing} />
         </button>
-        <span>Both demos loop side by side</span>
+        <span>{shown.length > 1 ? "Both demos loop side by side" : "Demo loops"}</span>
       </div>
     </>
   );

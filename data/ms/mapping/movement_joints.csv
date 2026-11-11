@@ -1,0 +1,186 @@
+movement,joint_id,score,action
+squat,knee,5,flexion / extension
+squat,hip,5,flexion / extension
+squat,ankle,3,dorsiflexion
+squat,lower-spine,3,braced (anti-flexion)
+leg-press,knee,5,flexion / extension
+leg-press,hip,4,flexion / extension
+leg-press,ankle,2,dorsiflexion
+lunge,knee,5,flexion / extension
+lunge,hip,5,flexion / extension
+lunge,ankle,3,dorsiflexion
+lunge,lower-spine,2,braced (anti-rotation)
+jump,knee,5,explosive extension
+jump,hip,5,explosive extension
+jump,ankle,5,explosive plantarflexion
+jump,lower-spine,2,braced
+knee-extension,knee,5,extension
+leg-curl,knee,5,flexion
+leg-curl,hip,1,stabilised
+leg-curl,ankle,1,stabilised
+hinge,hip,5,flexion / extension
+hinge,lower-spine,4,braced (anti-flexion)
+hinge,knee,2,slight flexion
+hinge,wrist,2,grip
+hinge,scapula,2,retracted / depressed
+bridge,hip,5,extension
+bridge,knee,2,held flexed
+bridge,lower-spine,2,braced (anti-extension)
+hip-extension,hip,5,extension
+hip-extension,lower-spine,2,braced
+back-extension,lower-spine,4,extension
+back-extension,hip,4,extension
+hip-abduction,hip,5,abduction
+hip-adduction,hip,5,adduction
+calf-raise,ankle,5,plantarflexion
+calf-raise,knee,1,held straight
+calf-raise-seated,ankle,5,plantarflexion
+tibialis,ankle,5,dorsiflexion
+horizontal-press,shoulder,5,horizontal adduction / flexion
+horizontal-press,elbow,4,extension
+horizontal-press,scapula,2,retracted (stable)
+horizontal-press,wrist,2,stacked under load
+incline-press,shoulder,5,flexion / horizontal adduction
+incline-press,elbow,4,extension
+incline-press,scapula,2,retracted (stable)
+incline-press,wrist,2,stacked under load
+decline-press,shoulder,4,extension / horizontal adduction
+decline-press,elbow,4,extension
+decline-press,wrist,2,stacked under load
+push-up,shoulder,4,horizontal adduction / flexion
+push-up,elbow,4,extension
+push-up,scapula,4,protraction
+push-up,wrist,3,extended under load
+push-up,lower-spine,2,braced (anti-extension)
+dip,shoulder,5,extension (deep)
+dip,elbow,5,extension
+dip,scapula,3,depression
+dip,wrist,2,stacked under load
+chest-fly,shoulder,5,horizontal adduction
+chest-fly,elbow,1,held slightly bent
+incline-fly,shoulder,5,flexion / horizontal adduction
+incline-fly,elbow,1,held slightly bent
+pullover,shoulder,5,extension from overhead
+pullover,scapula,3,downward rotation
+pullover,upper-spine,2,extension
+pullover,elbow,1,held
+vertical-press,shoulder,5,flexion / abduction overhead
+vertical-press,elbow,4,extension
+vertical-press,scapula,4,upward rotation
+vertical-press,upper-spine,2,extension
+vertical-press,lower-spine,2,braced
+vertical-press,wrist,2,stacked under load
+lateral-raise,shoulder,5,abduction
+lateral-raise,scapula,3,upward rotation
+front-raise,shoulder,5,flexion
+front-raise,scapula,2,upward rotation
+rear-delt,shoulder,5,horizontal abduction / external rotation
+rear-delt,scapula,4,retraction
+upright-row,shoulder,5,abduction with internal rotation
+upright-row,scapula,4,elevation
+upright-row,elbow,3,flexion
+upright-row,wrist,2,flexed under load
+rotator-cuff,shoulder,5,external / internal rotation
+rotator-cuff,scapula,2,stabilised
+y-raise,scapula,5,upward rotation / depression
+y-raise,shoulder,4,flexion overhead
+shrug,scapula,5,elevation
+shrug,wrist,2,grip
+vertical-pull,shoulder,5,adduction / extension
+vertical-pull,elbow,4,flexion
+vertical-pull,scapula,4,depression / downward rotation
+vertical-pull,wrist,2,grip
+horizontal-pull,shoulder,4,extension
+horizontal-pull,elbow,4,flexion
+horizontal-pull,scapula,5,retraction
+horizontal-pull,wrist,2,grip
+horizontal-pull,lower-spine,2,braced
+bent-row,shoulder,4,extension
+bent-row,elbow,4,flexion
+bent-row,scapula,5,retraction
+bent-row,lower-spine,4,braced in a hinge
+bent-row,hip,3,held hinged
+bent-row,wrist,2,grip
+curl,elbow,5,flexion
+curl,wrist,2,held neutral
+curl,shoulder,1,stabilised
+curl-short,elbow,5,flexion (arm in front)
+curl-short,wrist,2,held neutral
+curl-long,elbow,5,flexion (arm behind body)
+curl-long,shoulder,2,held extended
+curl-long,wrist,2,held neutral
+curl-neutral,elbow,5,flexion (neutral grip)
+curl-neutral,wrist,3,held neutral
+curl-reverse,elbow,5,flexion (pronated grip)
+curl-reverse,wrist,4,held extended (pronated)
+triceps-overhead,elbow,5,extension
+triceps-overhead,shoulder,3,held in flexion overhead
+triceps-lying,elbow,5,extension
+triceps-lying,shoulder,2,held flexed
+triceps-pushdown,elbow,5,extension
+triceps-pushdown,shoulder,1,stabilised
+triceps-reverse,elbow,5,extension (supinated)
+triceps-reverse,wrist,2,supinated
+triceps-kickback,elbow,5,extension
+triceps-kickback,shoulder,2,held extended
+wrist-curl,wrist,5,flexion
+wrist-extension,wrist,5,extension
+wrist-rotation,wrist,4,pronation / supination
+wrist-rotation,elbow,3,radio-ulnar rotation
+grip,wrist,3,isometric grip
+grip,shoulder,2,hanging / stabilised
+carry,wrist,3,isometric grip
+carry,scapula,3,elevation (isometric)
+carry,lower-spine,3,braced (anti-lateral flexion)
+carry,hip,2,gait
+carry,ankle,2,gait
+olympic,hip,5,explosive extension
+olympic,knee,5,explosive extension
+olympic,ankle,4,explosive plantarflexion
+olympic,shoulder,4,catch / elevation
+olympic,wrist,4,extended in the catch
+olympic,scapula,4,elevation (shrug)
+olympic,lower-spine,4,braced
+olympic,elbow,3,fast flexion
+sled,knee,5,extension (driving)
+sled,hip,5,extension (driving)
+sled,ankle,5,plantarflexion (driving)
+sled,lower-spine,3,braced
+sled,shoulder,2,braced arms
+get-up,shoulder,5,stabilised overhead
+get-up,scapula,4,stabilised
+get-up,hip,4,flexion / extension
+get-up,upper-spine,3,rotation
+get-up,lower-spine,3,braced / lateral flexion
+get-up,knee,3,flexion / extension
+get-up,wrist,3,stacked under load
+battle-ropes,shoulder,4,rapid flexion / extension
+battle-ropes,elbow,3,rapid flexion / extension
+battle-ropes,scapula,3,stabilised
+battle-ropes,lower-spine,2,braced
+battle-ropes,hip,2,held in a half squat
+battle-ropes,knee,2,held in a half squat
+throw-slam,shoulder,4,explosive flexion / extension
+throw-slam,lower-spine,4,explosive flexion
+throw-slam,hip,4,explosive hinge
+throw-slam,elbow,3,explosive extension
+throw-slam,scapula,3,protraction
+throw-slam,knee,3,flexion / extension
+trunk-flexion,lower-spine,4,flexion
+trunk-flexion,upper-spine,3,flexion
+trunk-flexion,hip,1,stabilised
+leg-raise,hip,5,flexion
+leg-raise,lower-spine,3,posterior pelvic tilt
+leg-raise,shoulder,1,hanging / stabilised
+rotation,upper-spine,4,rotation
+rotation,lower-spine,3,rotation / anti-rotation
+rotation,hip,3,rotation
+rotation,shoulder,2,stabilised
+lateral-flexion,lower-spine,4,lateral flexion
+lateral-flexion,hip,2,abduction (side plank)
+lateral-flexion,shoulder,2,stabilised
+anti-extension,lower-spine,3,braced (anti-extension)
+anti-extension,shoulder,3,flexion / stabilised
+anti-extension,hip,2,held extended
+anti-extension,scapula,2,protraction
+neck,upper-spine,3,cervical flexion / extension

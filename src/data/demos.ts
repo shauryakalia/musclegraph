@@ -1,5 +1,5 @@
 /* Stick-figure demo animations, keyed by demo id (an exercise id by default).
-   Generated from the original Exercise Atlas page. Each demo loops through its frames;
+   Generated from the original Muscle Graph page. Each demo loops through its frames;
    see src/lib/stick.ts for what each field means. */
 import type { Demo } from "@/lib/stick";
 
@@ -697,5 +697,59 @@ export const DEMOS: Record<string, Demo> = {
       {h:[80,118],t:85,hd:85,a1:[48,155],a2:["hip",-66,-2],ft1:265,ft2:265,w1:["sh",44,-3],w2:[122,156]}
     ],
     props: [],
+  },
+  /* Movement-pattern demos shared by many imported exercises. */
+  "jump": {
+    view: "side", labels: ["Load","Take-off"], thumb: 1,
+    frames: [
+      {h:[90,121],t:42,a1:[108,155],w1:["sh",-16,28]},
+      {h:[104,76],t:-4,a1:[104,134],ft1:150,w1:["sh",10,-32]}
+    ],
+    props: [],
+  },
+  "sled": {
+    view: "side", labels: ["Drive","Drive"],
+    frames: [
+      {h:[80,100],t:50,a1:[48,152],a2:[104,150],ft1:60,ft2:110,w1:["sh",38,12]},
+      {h:[80,100],t:50,a1:[104,150],a2:[48,152],ft1:110,ft2:60,w1:["sh",38,12]}
+    ],
+    props: [
+      {k:"rect",x:138,y:140,w:58,h:12,rx:2},
+      {k:"seg",p1:[152,140],p2:[152,85],w:4},
+      {k:"plate",at:[176,132],r:8}
+    ],
+  },
+  "get-up": {
+    view: "side", labels: ["Lie","Sit","Stand"], thumb: 2,
+    frames: [
+      {h:[96,152],t:-90,a1:[150,155],a2:[150,155],w1:["sh",0,-44]},
+      {h:[96,152],t:-10,a1:[150,155],a2:[150,155],w1:["sh",0,-44],w2:[80,154]},
+      {h:[108,92],t:0,a1:[108,155],a2:[108,155],w1:["sh",0,-44]}
+    ],
+    props: [
+      {k:"db",at:"wr1"}
+    ],
+  },
+  "battle-ropes": {
+    view: "side", labels: ["Wave","Wave"],
+    frames: [
+      {h:[96,108],t:22,a1:[116,155],a2:[82,152],w1:["sh",34,-20],w2:["sh",34,18]},
+      {h:[96,108],t:22,a1:[116,155],a2:[82,152],w1:["sh",34,18],w2:["sh",34,-20]}
+    ],
+    props: [
+      {k:"rect",x:186,y:138,w:8,h:22,rx:1},
+      {k:"cable",p1:[190,146],p2:"wr1"},
+      {k:"cable",p1:[190,146],p2:"wr2"}
+    ],
+  },
+  "throw-slam": {
+    view: "side", labels: ["Overhead","Slam"],
+    frames: [
+      {h:[104,86],t:-6,a1:[106,155],ft1:130,w1:["sh",6,-44]},
+      {h:[94,114],t:58,a1:[106,155],w1:[142,150]}
+    ],
+    props: [
+      {k:"plate",at:"wr1",off:[0,-5],r:9}
+    ],
   },
 };

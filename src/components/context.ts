@@ -29,6 +29,8 @@ export interface Actions {
   setLevel(l: Level): void;
   setMode(m: Mode): void;
   setSession(s: string): void;
+  setEquip(e: string): void;
+  setSkill(l: string): void;
   setQuery(raw: string): void;
   setMuscle(u: string | null): void;
   setJoint(j: string | null): void;
